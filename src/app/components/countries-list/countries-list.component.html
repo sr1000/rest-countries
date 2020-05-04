@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="inputs">
+    <form #searchForm="ngForm" (ngSubmit)="onSearch()">
+      <input aria-label="country search input" class="search" name="query" ngModel
+             placeholder="Search for a country..." type="text">
+    </form>
+
+    <!--    <ng-select [items]="filteringOptions">-->
+    <!--    </ng-select>-->
+
+    <!--    <ng-select [(ngModel)]="selectedCars" [multiple]="true">-->
+    <!--      <ng-option *ngFor="let car of cars" [disabled]="car.disabled" [value]="car.id">{{car.name}}</ng-option>-->
+    <!--      <ng-option [value]="'custom'">Custom</ng-option>-->
+    <!--    </ng-select>-->
+
+    <!--    <br/>Selected car ID: {{selectedCars | json}}-->
+
+    <!--    <ng-select></ng-select>-->
+  </div>
+  <div class="list">
+    <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+  </div>
+</div>

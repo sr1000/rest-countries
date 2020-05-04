@@ -1,0 +1,145 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btn {
+  padding: 0.7rem 3rem;
+
+  font-family: inherit;
+
+  border: none;
+
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem 0rem #ccc;
+
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0 0.7rem 0.5rem #eee;
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0 0.9rem 0.7rem #eee;
+  }
+}
+
+.btn-back {
+  box-shadow: 0 0 0.5rem 0.2rem #ccc;
+
+
+  @media (min-width: 1024px) {
+    margin-bottom: 7rem;
+  }
+}
+
+.country {
+  width: 32rem;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    //align-items: center;
+    justify-content: space-evenly;
+    width: 80vw;
+  }
+
+  &__img {
+    margin: 5rem 0 3rem;
+    width: 32rem;
+
+    @media (min-width: 1024px) {
+      width: 50rem;
+      margin: 0 5rem 0 0;
+    }
+  }
+
+  &__details {
+
+    @media (min-width: 1024px) {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 2rem;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 2rem;
+      font-size: 3rem;
+
+    }
+  }
+
+  &__subheading {
+    margin-bottom: 1.5rem;
+
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin-bottom: 0.5rem;
+
+    font-size: 1.6rem;
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__text-container {
+    margin-bottom: 4rem;
+
+    & > p {
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &:first-of-type {
+        margin-right: 10rem;
+      }
+    }
+  }
+
+  &__borders {
+    @media (min-width: 1024px) {
+      margin-top: 5rem;
+    }
+  }
+
+  &__border-countries {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__border-country {
+    margin-bottom: 1rem;
+
+    @media (min-width: 1024px) {
+      margin-right: 1rem;
+    }
+  }
+}
+

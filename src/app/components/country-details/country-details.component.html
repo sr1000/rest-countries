@@ -1,0 +1,46 @@
+<div class="container">
+  <button class="btn btn-back" routerLink="/">Back</button>
+
+  <div class="country">
+    <img *ngIf="countryDetails" [src]="countryDetails.flag" alt="" class="country__img">
+    <div class="country__wrapper">
+      <h1 class="country__heading">{{ countryDetails?.name }}</h1>
+      <div class="country__details">
+        <div class="country__text-container">
+          <div class="country__text-container">
+            <p class="country__text"><span class="country__label">Native Name:</span> {{ countryDetails?.nativeName }}
+            </p>
+            <p class="country__text"><span
+              class="country__label">Population:</span> {{ countryDetails?.population | number: '2.' }}</p>
+            <p class="country__text"><span class="country__label">Region:</span> {{ countryDetails?.region }}</p>
+            <p class="country__text"><span class="country__label">Sub Region:</span> {{ countryDetails?.subregion }}</p>
+            <p class="country__text"><span class="country__label">Capital:</span> {{ countryDetails?.capital }}</p>
+          </div>
+        </div>
+
+
+        <div class="country__text-container">
+          <p class="country__text"><span
+            class="country__label">Top Level Domain:</span> {{ countryDetails?.topLevelDomain }}</p>
+          <p class="country__text"><span class="country__label">Currencies: </span> <span
+            *ngFor="let currency of countryDetails?.currencies; let isLast = last">{{ currency.name }}{{ isLast ? '' : ', '}}</span>
+          </p>
+          <p class="country__text"><span class="country__label">Languages: </span> <span
+            *ngFor="let language of countryDetails?.languages; let isLast = last"
+            class="country__language">{{ language.name }}{{ isLast ? '' : ', '}}</span>
+          </p>
+        </div>
+
+
+      </div>
+      <div *ngIf="borderCountries" class="country__borders">
+        <p class="country__subheading">Border Countries:</p>
+        <div class="country__border-countries">
+          <button *ngFor="let country of borderCountries" class="btn country__border-country"
+                  routerLink="/country/{{country.name}}">{{country.name}}</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

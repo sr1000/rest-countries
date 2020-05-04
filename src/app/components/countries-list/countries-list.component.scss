@@ -1,0 +1,31 @@
+
+.inputs {
+  margin-bottom: 4rem;
+}
+
+.search {
+  padding: 2rem 5rem;
+  width: 100%;
+
+  font-family: inherit;
+  color: hsl(0, 0%, 52%);
+  font-size: 1.8rem;
+
+  border: none;
+  border-radius: 0.5rem;
+
+  box-shadow: 0 0 0.8rem 0.5rem #eee;
+
+  outline: none;
+
+  &::placeholder {
+    color: hsl(0, 0%, 52%);
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 3rem;
+  justify-items: center;
+}

@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 3rem;
+
+  background-color: #fff;
+
+  border-bottom: 0.1rem solid #eee;
+  box-shadow: 0 0 1rem 0.2rem #ddd;
+
+  &__heading {
+    font-weight: 800;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &__dark-mode {
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
