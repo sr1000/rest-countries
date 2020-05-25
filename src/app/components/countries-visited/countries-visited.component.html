@@ -1,0 +1,7 @@
+<div class="container">
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+  <div *ngIf="!isLoading" class="list">
+    <p *ngIf="!countriesVisited" class="u-centered-text">The list is empty.</p>
+    <app-country-card *ngFor="let country of countriesVisited | keyvalue" [country]="country.value"></app-country-card>
+  </div>
+</div>

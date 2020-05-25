@@ -1,0 +1,26 @@
+<div class="entry-container">
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+  <div *ngIf="!isLoading" class="entry">
+    <h1 class="entry__heading">REST Countries</h1>
+
+    <p *ngIf="error && !isLoading" class="entry__error-field">{{error}}</p>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="authForm" class="entry__form">
+      <div class="entry__inputs">
+        <input aria-label="email" class="entry__input" formControlName="email" placeholder="Enter email..."
+               type="email">
+        <input aria-label="password" class="entry__input" formControlName="password" placeholder="Enter password..."
+               type="password">
+      </div>
+      <p *ngIf="isLoginMode" class="entry__text">Don't have an account yet? Sign up <a (click)="toggleAuthMode()"
+                                                                                       class="entry__link">here.</a>
+      <p *ngIf="!isLoginMode" class="entry__text">Already have an account? Log in <a (click)="toggleAuthMode()"
+                                                                                     class="entry__link">here.</a>
+      </p>
+      <button [disabled]="isLoading" class="btn entry__btn"
+              type="submit">{{ isLoginMode ? 'Log In' : 'Sign Up' }}</button>
+    </form>
+  </div>
+</div>
+
+

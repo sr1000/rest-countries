@@ -1,0 +1,35 @@
+.btn {
+  padding: 0.7rem 3rem;
+
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-family: inherit;
+
+  background-color: var(--background-element);
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.6rem 0.2rem var(--shadow-color);
+
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0 0.7rem 0.5rem var(--shadow-color);
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0 0.9rem 0.7rem var(--shadow-color);
+  }
+
+  &--back {
+    padding: 0.7rem 5rem 0.7rem 6rem;
+
+    background: var(--back-icon);
+    background-size: 2rem;
+
+    box-shadow: 0 0 0.5rem 0.2rem var(--shadow-color);
+  }
+}

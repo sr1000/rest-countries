@@ -1,3 +1,16 @@
+:root {
+  --background: hsl(0, 0%, 97%);
+  --text-color: hsl(200, 15%, 8%);
+  --input-text-color: hsl(0, 0%, 52%);
+  --background-element: hsl(0, 0%, 100%);
+  --shadow-color: #eee;
+  --shadow-header-color: #ddd;
+  --moon-icon: url("assets/moon-dark.svg") no-repeat;
+  --search-icon: var(--background-element) url("assets/search-dark.svg") no-repeat 1rem 50%;
+  --back-icon: var(--background-element) url("assets/arrow-dark.svg") no-repeat 30% 50%;
+  --image-filter: grayscale(0);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +23,113 @@ html {
 }
 
 body {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(200, 15%, 8%);
+  background-color: var(--background);
+  color: var(--text-color);
 }
 
 .container {
   padding: 3rem;
 }
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 3rem;
+  justify-items: center;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  line-height: 145%;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+h6 {
+  font-weight: normal;
+}
+
+ul, ol {
+  padding: 1rem 0 1rem 4rem;
+}
+
+ul li, ol li {
+  line-height: 145%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input, .form-control {
+  color: var(--input-text-color);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 145%;
+  border: .1rem solid #ddd;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+:-ms-input-placeholder {
+  color: var(--input-text-color) !important;
+  font-weight: 400 !important;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  color: var(--input-text-color);
+}
+
+

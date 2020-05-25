@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ICountry } from './models/country.model';
+import { ICountry } from '../models/country.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountriesService {
-  private API_URL = 'https://restcountries.eu/rest/v2';
+  private API_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) {
   }
@@ -23,6 +24,10 @@ export class CountriesService {
   getBorderCountries(countryCodes: string[]): Observable<ICountry[]> {
     const url = this.makeUrl('/alpha', countryCodes);
     return this.http.get<ICountry[]>(url);
+  }
+
+  filterRegion(region: string): Observable<ICountry[]> {
+    return this.http.get<ICountry[]>(`${this.API_URL}/region/${region}`);
   }
 
   private makeUrl(resource: string, codes: string[]): string {

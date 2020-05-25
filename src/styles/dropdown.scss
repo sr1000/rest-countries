@@ -1,0 +1,58 @@
+.ng-select {
+
+
+  &.ng-select-focused {
+    &:not(.ng-select-opened) > .ng-select-container {
+      border-color: transparent;
+      box-shadow: 0 0 0.8rem 0.5rem var(--shadow-color);
+    }
+  }
+
+  &.ng-select-opened {
+    > .ng-select-container {
+      border-color: var(--shadow-color);
+    }
+  }
+
+  & .ng-select-container {
+    color: var(--text-color);
+    border: none;
+    box-shadow: 0 0 0.8rem 0.5rem var(--shadow-color);
+    background-color: var(--background-element);
+
+    &:hover {
+      box-shadow: 0 0 0.8rem 0.5rem var(--shadow-color);
+    }
+  }
+
+  &.ng-select-single .ng-select-container {
+    height: 6rem;
+    padding-left: 2rem;
+  }
+
+  & .ng-select-container .ng-value-container .ng-placeholder {
+    color: var(--text-color);
+
+  }
+}
+
+.ng-dropdown-panel {
+  background-color: transparent;
+  border: none;
+
+  & .ng-dropdown-panel-items .ng-option {
+    padding-left: 3rem;
+
+    color: var(--text-color);
+
+    background-color: var(--background-element);
+  }
+}
+
+.ng-select.ng-select-opened.ng-select-bottom > .ng-select-container {
+  background-color: var(--background-element);
+}
+
+.ng-select.ng-select-opened > .ng-select-container:hover {
+  box-shadow: 0 0 0.8rem 0.5rem var(--shadow-color);
+}

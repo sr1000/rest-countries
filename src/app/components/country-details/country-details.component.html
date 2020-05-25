@@ -1,5 +1,11 @@
-<div class="container">
-  <button class="btn btn-back" routerLink="/">Back</button>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+<div *ngIf="!isLoading" class="container">
+  <div class="buttons">
+    <button class="btn btn--back" routerLink="/">Back</button>
+    <button (click)="onToggleVisited()"
+            class="btn">{{isVisited ? 'Remove from visited countries' : 'Add to visited countries'}}</button>
+  </div>
 
   <div class="country">
     <img *ngIf="countryDetails" [src]="countryDetails.flag" alt="" class="country__img">
@@ -7,17 +13,14 @@
       <h1 class="country__heading">{{ countryDetails?.name }}</h1>
       <div class="country__details">
         <div class="country__text-container">
-          <div class="country__text-container">
-            <p class="country__text"><span class="country__label">Native Name:</span> {{ countryDetails?.nativeName }}
-            </p>
-            <p class="country__text"><span
-              class="country__label">Population:</span> {{ countryDetails?.population | number: '2.' }}</p>
-            <p class="country__text"><span class="country__label">Region:</span> {{ countryDetails?.region }}</p>
-            <p class="country__text"><span class="country__label">Sub Region:</span> {{ countryDetails?.subregion }}</p>
-            <p class="country__text"><span class="country__label">Capital:</span> {{ countryDetails?.capital }}</p>
-          </div>
+          <p class="country__text"><span class="country__label">Native Name:</span> {{ countryDetails?.nativeName }}
+          </p>
+          <p class="country__text"><span
+            class="country__label">Population:</span> {{ countryDetails?.population | number: '2.' }}</p>
+          <p class="country__text"><span class="country__label">Region:</span> {{ countryDetails?.region }}</p>
+          <p class="country__text"><span class="country__label">Sub Region:</span> {{ countryDetails?.subregion }}</p>
+          <p class="country__text"><span class="country__label">Capital:</span> {{ countryDetails?.capital }}</p>
         </div>
-
 
         <div class="country__text-container">
           <p class="country__text"><span
@@ -31,16 +34,14 @@
           </p>
         </div>
 
-
       </div>
       <div *ngIf="borderCountries" class="country__borders">
-        <p class="country__subheading">Border Countries:</p>
+        <h3 class="country__subheading">Border Countries:</h3>
         <div class="country__border-countries">
           <button *ngFor="let country of borderCountries" class="btn country__border-country"
                   routerLink="/country/{{country.name}}">{{country.name}}</button>
         </div>
       </div>
     </div>
-
   </div>
 </div>

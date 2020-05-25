@@ -1,23 +1,21 @@
 <div class="container">
   <div class="inputs">
-    <form #searchForm="ngForm" (ngSubmit)="onSearch()">
-      <input aria-label="country search input" class="search" name="query" ngModel
+    <form #searchForm="ngForm" (ngSubmit)="onSearch()" class="inputs__search-form">
+      <input aria-label="country search input" class="inputs__search" name="query" ngModel
              placeholder="Search for a country..." type="text">
     </form>
 
-    <!--    <ng-select [items]="filteringOptions">-->
-    <!--    </ng-select>-->
-
-    <!--    <ng-select [(ngModel)]="selectedCars" [multiple]="true">-->
-    <!--      <ng-option *ngFor="let car of cars" [disabled]="car.disabled" [value]="car.id">{{car.name}}</ng-option>-->
-    <!--      <ng-option [value]="'custom'">Custom</ng-option>-->
-    <!--    </ng-select>-->
-
-    <!--    <br/>Selected car ID: {{selectedCars | json}}-->
-
-    <!--    <ng-select></ng-select>-->
+    <ng-select (change)="onFilter()" [(ngModel)]="selectedFilter" [clearable]="true" [items]="filteringOptions"
+               [searchable]="false" class="inputs__select" placeholder="Filter by Region">
+    </ng-select>
   </div>
-  <div class="list">
-    <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+  <p *ngIf="error && !isLoading" class="u-centered-text">{{ error }}</p>
+
+  <div (scrolled)="onScroll()" *ngIf="!isLoading && !error" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+       class="list" infiniteScroll>
+    <app-country-card *ngFor="let country of countriesRendered" [country]="country"></app-country-card>
   </div>
 </div>
